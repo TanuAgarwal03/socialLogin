@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.github',
     # 'allauth.socialaccount.providers.linkedin',
+    'allauth.socialaccount.providers.twitter',
     'social_django',
 ]
 
@@ -138,10 +139,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
-    # 'social_core.backends.facebook.FacebookOAuth2',
-    # 'social_core.backends.github.GithubOAuth2',
     'social_core.backends.linkedin.LinkedinOAuth2',
-
+    # 'allauth.socialaccount.providers.oauth.provider.OAuthProvider',
+    # 'allauth.socialaccount.providers.twitter.auth.TwitterOAuthAdapter',
+    # 'allauth.socialaccount.providers.twitter.provider.TwitterProvider'
 ]
 SITE_ID = 1
 
@@ -175,16 +176,50 @@ SOCIALACCOUNT_PROVIDERS = {
             'key' : '',
         },
     },
-    # 'linkedin': {
-    #     'APP': {
+
+    'twitter': {
+        'APP':{
+            'client_id': 'dFVUWFV6MzVHdEFYRWs4ejBva0s6MTpjaQ',
+            'secret': '-SLyGhPJLs57S-tuK6EKq3TCNLJs5PWZ4l2BENnyWpQcKI5UFV'
+        }
+    },
+    'linkedin-oauth2': {
+        'APP': {
+            'client_id': '86a665juyylktl',
+            'secret': 'MHOj30wAh3JsiHGJ',
+            'key' : '',
+        },
+    }
+    # 'linkedin_oauth2': {
+    #      'APP': {
     #         'client_id': '86a665juyylktl',
     #         'secret': 'MHOj30wAh3JsiHGJ',
-    #         'key' : '',
+    #         'key': '',
     #     },
-    # }
-
-
+    #       'SCOPE': [
+    #         'r_liteprofile',
+    #         'r_emailaddress',
+    #         'w_member_social',
+    #     ],
+    #      'PROFILE_FIELDS': [
+    #         'id',
+    #         'firstName',
+    #         'lastName',
+    #         'emailAddress',
+    #         'email-address',
+    #         'profilePicture',
+    #         'public-profile-url',
+    #     ],
+    #     'LOCATION_FIELDS': [
+    #         'location',
+    #     ],
+    #     'POSITION_FIELDS': [
+    #         'company',
+    #     ]
+    # },
+    
 }
+
 
 	
 LOGIN_URL = 'login'
@@ -192,9 +227,11 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'home'
 
-# SOCIAL_AUTH_FACEBOOK_KEY = '339213185798864' # App ID
-# SOCIAL_AUTH_FACEBOOK_SECRET = '946a15608bf0ce92f3442c27a7d56241' # App Secret
+# SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '86a665juyylktl'
+# SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'MHOj30wAh3JsiHGJ'
 
+# SOCIAL_AUTH_TWITTER_KEY = 'dFVUWFV6MzVHdEFYRWs4ejBva0s6MTpjaQ' 
+# SOCIAL_AUTH_TWITTER_SECRET = '-SLyGhPJLs57S-tuK6EKq3TCNLJs5PWZ4l2BENnyWpQcKI5UFV'
 
-SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '86a665juyylktl'
-SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'MHOj30wAh3JsiHGJ'
+# XyuUI7rThXWiC7JBSlBggbnVb apikey
+# Sz3bWXZAzvSSRYH7at6kZaCs11Uk8n2r87W1KKbxCU889fmMJ9 apisecretkey
